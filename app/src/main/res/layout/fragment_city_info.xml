@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="wcLocationInfo"
+            type="com.countries.weather.api.model.WCLocationInfo" />
+
+        <variable
+            name="forecastSize"
+            type="Integer" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".fragments.CityInfoFragment">
+
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:indeterminate="true"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:mpb_progressStyle="horizontal"
+                app:mpb_useIntrinsicPadding="false" />
+
+            <include
+                android:id="@+id/weather"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                layout="@layout/view_weather"
+                bind:title="@{wcLocationInfo.title}"
+                bind:parent="@{wcLocationInfo.parent.title}"
+                bind:wcWeather="@{wcLocationInfo.consolidated_weather.get(1)}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <include
+                layout="@layout/view_weather_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather"
+                bind:wcWeather="@{wcLocationInfo.consolidated_weather.get(1)}"
+                bind:title="@{String.format(@string/details)}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

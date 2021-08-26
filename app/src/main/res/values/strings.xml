@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="search_city_fragment_label">Search City Fragment</string>
+    <string name="city_info_fragment_label">City Info Fragment</string>
+    <string name="hint_enter_city_name">Enter city name</string>
+
+    <string name="temp">%1$d°C</string>
+    <string name="min_temp">%1$d°</string>
+    <string name="wind_format">%1$s %2$d mph</string>
+    <string name="humidity_format">%1$d%%</string>
+    <string name="visibility_format">%1$.1f mi</string>
+    <string name="pressure_format">%1$.0fmb</string>
+    <string name="confidence_format">%1$d%%</string>
+
+    <string name="details">Details:</string>
+    <string name="wind">WIND</string>
+    <string name="humidity">HUMIDITY</string>
+    <string name="visibility">VISIBILITY</string>
+    <string name="pressure">PRESSURE</string>
+    <string name="confidence">CONFIDENCE</string>
+
+    <string name="location_label"> Tomorrow\'s weather forecast</string>
+    <string name="no_data_available">No Data Available</string>
+</resources>
