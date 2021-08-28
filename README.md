@@ -1,5 +1,5 @@
 
 
-![alt text](defaultlist/S1.png)
-![alt text](details/S2.png)
-![alt text](dynamicsearch/S3.jpg)
+![alt text](screenshots/defaultlist.png)
+![alt text](screenshots/details.png)
+![alt text](screenshots/dynamicsearch.png)
