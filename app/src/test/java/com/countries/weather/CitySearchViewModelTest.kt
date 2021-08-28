@@ -36,7 +36,7 @@ class CitySearchViewModelTest {
     private lateinit var apiService: ApiService
 
     @Mock
-    private lateinit var liveData: Observer<List<WCLocation>>
+    private lateinit var liveData: Observer<List<WCLocation?>>
 
     private lateinit var webServer: MockWebServer
 

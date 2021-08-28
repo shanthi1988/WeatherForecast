@@ -44,7 +44,15 @@ class SearchCityFragment : Fragment() {
         //geCities-Mutable LiveData will return the list of cities based on user search
 
         citySearchViewModel.getCities().observe(viewLifecycleOwner, Observer { list ->
-            adapter.submitList(list)
+            if (list!==null){
+                adapter.submitList(list)
+            }
+        })
+
+        //geCities-Mutable LiveData will return the default Country List
+
+        citySearchViewModel.getDefaultLocation().observe(viewLifecycleOwner, Observer { list ->
+           adapter.submitList(list)
         })
 
         //getStatus- Mutable LiveData will return boolean if any error occurred
@@ -73,11 +81,16 @@ class SearchCityFragment : Fragment() {
         })
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        search_box.setText("")
         search_box.doAfterTextChanged { city: Editable? ->
-            citySearchViewModel.searchCountry(city.toString())
+            if (city.toString().isEmpty()) {
+                citySearchViewModel.fetchDefaultCountry()
+            } else {
+                citySearchViewModel.searchCountry(city.toString())
+            }
         }
-    }
+        }
+
 }

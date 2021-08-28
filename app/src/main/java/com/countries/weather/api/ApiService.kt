@@ -12,7 +12,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("location/search")
-    suspend fun searchLocation(@Query("query") searchLocation: String): Response<List<WCLocation>>
+    suspend fun searchLocation(@Query("query") searchLocation: String): Response<MutableList<WCLocation?>>
 
     @GET("location/{woeid}")
     suspend fun getLocationInfo(@Path("woeid") woeid: Int): Response<WCLocationInfo>
